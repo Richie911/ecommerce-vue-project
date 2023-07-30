@@ -69,6 +69,7 @@ export default {
       <template>
         <div class="cart">
           <button class="cart-icon" @click="toggleCart">
+            <div class="inventory-count">999</div>
             <Cart />
           </button>
           <div class="cart-modal" :style="{ display: cart ? 'block' : 'none' }">
@@ -98,6 +99,7 @@ export default {
                   </tr>
                 </tbody>
               </table>
+              <button class="button-checkout">Checkout</button>
             </div>
           </div>
         </div>
@@ -192,6 +194,20 @@ hr {
 .cart {
   position: relative;
 }
+.inventory-count {
+  min-width: 22px;
+  height: 12px;
+  background-color: #ec7b02;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  top: 6px;
+  left: 9px;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 .cart-icon {
   border: none;
   background-color: inherit;
@@ -199,8 +215,8 @@ hr {
 }
 .cart-modal {
   position: absolute;
-  width: 320px;
-  height: 250px;
+  width: 285px;
+  max-height: 750px;
   background-color: rgb(255, 255, 255);
   transform: translate(-200px, 10px);
   border-radius: 10px;
@@ -221,13 +237,29 @@ hr {
 .cart-details {
   padding: 20px;
 }
+table {
+  margin-bottom: 10px;
+  overflow: auto;
+}
 td:not(:last-child) {
   padding-right: 10px;
+  font-size: 12px;
 }
 strong {
   color: black;
   font-weight: 700;
-
+}
+.button-checkout {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ec7b02;
+  color: white;
+  font-size: 11px;
+  border: none;
+}
+button {
+  cursor: pointer;
 }
 @media (max-width: 700px) {
   .nav {

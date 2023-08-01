@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      discountedPrice: this.price - this.price * (this.discount / 100),
+      discountedPrice: this.price - this.price * this.discount,
       count: 0,
     };
   },
@@ -38,7 +38,7 @@ export default {
 <template>
   <div class="collection">
     <div class="images-div">
-      <img class="image" src="../../assets/images/image-product-1.jpg" />
+      <img class="image" :src="image" />
     </div>
     <div class="product-details">
       <p class="brand">{{ brand }}</p>
@@ -47,7 +47,7 @@ export default {
       <div class="discounted-div">
         <p class="discounted-price">${{ discountedPrice.toFixed(2) }}</p>
         <div class="discount-container">
-          <p class="discount">{{ discount }}%</p>
+          <p class="discount">{{ discount * 100 }}%</p>
         </div>
       </div>
       <p class="price">${{ price.toFixed(2) }}</p>
@@ -88,13 +88,10 @@ export default {
 }
 .image-div {
   width: 410px;
-  height: 630px;
-  background-color: aqua;
 }
 .image {
   border-radius: 10px;
   width: 310px;
-  height: 330px;
 }
 .brand {
   font-size: 10px;

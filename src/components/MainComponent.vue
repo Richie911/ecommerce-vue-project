@@ -1,22 +1,30 @@
 <script lang="ts">
+import store from "@/store";
 import ShoeCollection from "../components/Main/ShoeCollection.vue";
 
 export default {
   components: {
     ShoeCollection,
   },
+  data() {
+    return {
+      allProducts: store.state.allProducts,
+    };
+  },
 };
 </script>
 
 <template>
-  <div class="main-page">
+  <div class="main-page" vk>
     <ShoeCollection
-      brand="SNEAKER COMPANY"
-      description="These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer"
-      :discount="50"
-      :price="250.0"
-      name="Fall Limited Edition Sneakers"
-      image="../../assets/images/image-product-1.jpg"
+      v-for="product in allProducts"
+      v-bind:key="product.id"
+      :brand="product.brand"
+      :description="product.description"
+      :discount="product.discount"
+      :price="product.price"
+      :name="product.name"
+      :image="product.image"
     ></ShoeCollection>
   </div>
 </template>
@@ -25,5 +33,7 @@ export default {
 .main-page {
   display: flex;
   padding: 50px 50px 0px 50px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 </style>

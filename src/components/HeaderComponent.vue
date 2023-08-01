@@ -153,6 +153,9 @@ hr {
   font-weight: 700;
   color: black;
 }
+a:active {
+  color: black;
+}
 .menu-button {
   display: none;
 }

@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       allProducts: store.state.allProducts,
+      maleProducts: store.getters.maleProducts,
     };
   },
 };
